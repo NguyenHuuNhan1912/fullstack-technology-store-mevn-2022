@@ -1,0 +1,308 @@
+@import "../scss/variable.scss";
+@import "../scss/mixin.scss";
+.main {
+    .wrapper-sign-in-up {
+        .hide {
+            display: none;
+        }
+        background: $bg-signin;
+        overflow: hidden;
+        filter: hue-rotate(120deg);
+        animation: bg-signin 10s linear infinite;
+
+        @keyframes bg-signin {
+            0% {
+                filter: hue-rotate(0);
+            }
+
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+        .sign-in-up {
+            border-radius: 5px;
+            box-shadow: 0 0 5px 5px white;
+            background-color: white;
+            padding: 20px;
+            padding-top: calc(40px + 20px);
+            margin: 80px 450px;
+            position: relative;
+
+            .logo {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                img {
+                    width: 80px;
+                    display: block;
+                    border: 5px solid white;
+                    border-radius: 100px;
+                    transition: all 0.4s linear;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+
+            }
+
+            .form{
+                font-size: 10px;
+
+                h1 {
+                    text-align: center;
+                    font-size: 3.3em;
+                    @include textGradient(#03a9f4, #3a78b7);
+                }
+
+                .form-group {
+                    // border: 1px solid grey;
+                    position: relative;
+                    &:not(:last-child) > [name^="input-"] {
+                            // $bg-border, $pd-tb, $pd-lr, $br, $fs)
+                        @include formInput(none, 10px, 10px, 5px, 1.7em);
+                        border: 1px solid grey;
+                        padding-left: 35px;
+                    }
+                    .btn {
+                        // @mixin button($bg-color, $color, $hover-bg-color, $hover-color, $fs, $pd-tb, $pd-lr, $border-rd)
+                        width: 100%;
+                        @include button(blue, white, $main-fs, 10px, 10px, 5px, 0.4s);
+                        background: $bg-signin;
+
+                        &:hover {
+                            background-image: linear-gradient(to right, $main-color, $main-color);
+                        }
+                    }
+
+                    .icon {
+                        position: absolute;
+                        font-size: 20px;
+                        top: 10px;
+                        left: 10px;
+                        color: grey;
+                    }
+
+                    .message {
+                        // color: white;
+                        font-size: 1.5em;
+                        margin: 10px 0;
+                    }
+                }
+
+                .form-group + .form-group {
+                    margin-top: 20px;
+                }
+            }
+
+            .siginin__other {
+                // border: 1px solid grey;
+                @include flexLayout();
+                justify-content: space-between;
+                font-size: 10px;
+                margin-top: 20px;
+
+                a {
+                    font-size: 1.6em;
+                    color: inherit;
+                    text-transform: uppercase;
+                    transition: all 0.4s linear;
+                    &:hover {
+                        transform: scale(1.1);
+                        color: red;
+                    }
+                }
+            }
+
+            .signin__with {
+                // border: 1px solid red;
+                font-size: 10px;
+                margin-top: 20px;
+
+                .title {
+                    h1 {
+                        text-transform: uppercase;
+                        font-size: 1.6em;
+                        text-align: center;
+                        position: relative;
+
+                        &::before,
+                        &::after {
+                            content: "";
+                            height: 3px;
+                            width: 27%;
+                            position: absolute;
+                            top: 50%;
+                            background: $bg-signin;
+                            transform: translateY(-50%);
+                        }
+
+                        &::before {
+                            left: 0;
+                        }
+
+                        &::after {
+                            right: 0;
+                        }
+                    }
+                }
+
+                .facebook {
+                    margin: 20px 0;
+                }
+
+                .facebook,
+                .google {
+                    border-radius: 5px;
+
+                    a {
+                        text-transform: uppercase;
+                        color: white;
+                        @include flexLayout();
+                        @include button(blue, white, $main-fs, 10px, 10px, 5px, 0.4s);
+                        background: $bg-signin;
+
+                        .icon {
+                            font-size: 20px;
+                        }
+
+                        p {
+                            // border: 1px solid black;
+                            width: 100%;
+                            text-align: center;
+                            margin-right: 30px;
+                        }
+
+                        &:hover {
+                            background-image: linear-gradient(to right, $main-color, $main-color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive
+@include responsive_main_lg__ {
+    .main {
+        .wrapper-sign-in-up {
+            .sign-in-up {
+                margin: 60px 300px;
+                margin-top: calc(60px + 40px);
+            }
+        }
+    }
+}
+
+@include responsive_main_md__ {
+    .main {
+        .wrapper-sign-in-up {
+            .sign-in-up {
+                margin: 50px 150px;
+                margin-top: calc(50px + 40px);
+            }
+        }
+    }
+}
+
+@include responsive_main_sm__ {
+    .main {
+        .wrapper-sign-in-up {
+            .sign-in-up {
+                margin: 40px;
+                margin-top: calc(40px + 40px);
+            }
+        }
+    }
+}
+
+@include responsive_main_xm__ {
+    .main {
+        .wrapper-sign-in-up {
+            .sign-in-up {
+                margin: 20px;
+                margin-top: calc(20px + 40px);
+                box-shadow: initial;
+
+                .form,
+                .siginin__other,
+                .signin__with {
+                    font-size: 8px;
+                    .title {
+                        h1 {
+                            &::before,
+                            &::after {
+                                width: 25.5%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive_xxm {
+    .main {
+        .wrapper-sign-in-up {
+            .sign-in-up {
+                margin: 15px;
+                margin-top: calc(15px + 40px);
+                padding: 15px;
+                padding-top: calc(40px + 15px);
+                .form {
+                    .form-group {
+                        .icon {
+                            font-size: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 10px;
+                        }
+
+                       &:not(:last-child) > [name^="input-"] {
+                            padding-left: 30px;
+                        }
+                    }
+
+                    .form-group + .form-group {
+                        margin-top: 15px;
+                    }
+                }
+
+                .form,
+                .siginin__other,
+                .signin__with {
+                    font-size: 6.5px;
+                }
+
+                .siginin__other {
+                    margin-top: 15px;
+                }
+
+                .signin__with {
+                    margin-top: 15px;
+                    .title {
+                        h1 {
+                            &::before,
+                            &::after {
+                                width: 25%;
+                            }
+                        }
+                    }
+                    .facebook {
+                        margin: 15px 0;
+                    }
+
+                    .facebook,
+                    .google {
+                        .icon {
+                            font-size: 15px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

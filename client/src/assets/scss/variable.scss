@@ -1,0 +1,44 @@
+//Background color
+$main-color: #eb3e32;
+// $main-color: #ff724a;
+// $main-color: rgb(19, 19, 97);
+$main-fs: 1.8em;
+$bg-signin: linear-gradient(-30deg, #03a9f4 0%, #3a78b7 50%, #262626 50%, #607d8b 100%);
+$color-button-hover: #0aeff7;
+
+//list color gradient
+$bg-linear-first: blue, red,black, rgb(229, 43, 43), #f042f0, #ed742e,#20a0f6, #06a24f;
+$bg-linear-end: blueviolet, yellow,grey, blue, #11cee3, #F7CE68,#9599E2, #e4dd13;
+$class-name-introduce: '.des-1', '.des-2', '.des-3', '.des-4','.des-5', '.des-6', '.des-7', '.des-8';
+
+// Swiper button icon prev
+$swiper-button-prev: "<font-awesome-icon icon="fa-solid fa-arrow-left"/>";
+
+// Swiper button next
+$swiper-button-next: "<font-awesome-icon icon="fa-solid fa-arrow-right"/>";
+
+//list color gradient product homepage
+$class-name-product: '.product-list--laptop', '.product-list--mobile', '.product-list--tablet', '.product-list--mouse', '.product-list--keyboard', '.product-list--smartwatch';
+$bg-linear-first-product: blue, $main-color,black, rgb(229, 43, 43), #f042f0, #ed742e;
+$bg-linear-end-product: blueviolet, rgb(1,1,29),grey, blue, #11cee3, #F7CE68;
+
+// background product 
+$bg-product-laptop: linear-gradient(to right, blue, blueviolet);
+$bg-product-mobile: linear-gradient(to right, $main-color, rgb(1,1,29));
+$bg-product-tablet: linear-gradient(to right, black, grey);
+$bg-product-mouse: linear-gradient(to right, rgb(229, 43, 43), blue);
+$bg-product-keyboard: linear-gradient(to right,#f042f0, #11cee3);
+$bg-product-smartwatch: linear-gradient(to right,#ed742e, #F7CE68);
+
+// Responsive check point
+// Responsive
+$res_main_lg__: 'screen and (max-width: 1199px)';
+$res_main_md__: 'screen and (max-width: 991px)';
+$res_main_sm__: 'screen and (max-width: 767px)';
+$res_main_xm__: 'screen and (max-width: 575px)';
+
+$res_lg: 'screen and (min-width: 992px) and (max-width: 1199px)';
+$res_md: 'screen and (min-width: 768px) and (max-width: 991px)';
+$res_sm: 'screen and (min-width: 576px) and (max-width: 767px)';
+$res_xm: 'screen and (min-width: 321px) and (max-width: 575px)';
+$res_xxm: 'screen and (max-width: 320px)';

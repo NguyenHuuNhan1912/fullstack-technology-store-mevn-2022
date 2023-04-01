@@ -1,0 +1,288 @@
+@import './variable.scss';
+@import './mixin.scss';
+.footer {
+  background-color: $main-color;
+  color: white;
+  overflow: hidden;
+  a {
+      color: inherit;
+  }
+  .footer__content {
+      font-size: 10px;
+      padding: 30px 80px;
+      // border: 1px solid black;
+      .my-store {
+          // border: 1px solid black;
+          font-size: 1.6em;
+          padding: 5px;
+          &-title {
+              @include titleFooter();
+          }
+          &-list {
+              .my-store-item {
+                  a {
+                      @include itemFooterStyle();
+                      @include flexLayout();
+                      .icon {
+                          min-width: 20px;
+                      }
+                      p {
+                          margin-left: 8px;
+                      }
+                      &:hover {
+                          @include itemFooterHover();
+                      }
+                  }
+              }
+          }
+      }
+      .hotline {
+          font-size: 1.8em;
+          text-align: center;
+          position: relative;
+          // border: 1px solid black;
+          height: 100%;
+          @include flexLayout();
+          flex-direction: column;
+          justify-content: center;
+          @include keyframesScaleX();
+          h1 {
+              font-size: inherit;
+              color: yellow;
+          }
+          p {
+              font-size: 2em;
+              padding-top: 8px;
+          }
+      }
+      .support {
+          font-size: 1.6em;
+          // border: 1px solid black;
+          padding: 5px;
+          &-title {
+              p {
+                  text-align: right;
+                  @include titleFooter();
+                  padding-right: 0;
+              }
+          }
+          &-list {
+              .support-item {
+                  a {
+                      @include itemFooterStyle();
+                      @include flexLayout();
+                      justify-content: flex-end;
+                      padding: 5px 0;
+                      .icon {
+                          // border: 1px solid black;
+                          text-align: right;
+                      }
+                      p {
+                          margin-left: 8px;
+                          // border: 1px solid black;
+                          // margin-left: auto;
+                      }
+                      &:hover {
+                          @include itemFooterHover();
+                      }
+                  }
+              }
+          }
+      }
+      .contact-us {
+          height: 100%;
+          font-size: 1.8em;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          // border: 1px solid black;
+          padding: 5px;
+          &-title {
+              @include titleFooter();
+          }
+
+          &-list {
+              @include flexLayout();
+              .contact-us-item {
+                  .icon {
+                      @include itemHeaderStyle(4px, 0, transparent, 5px, 5px);
+                      font-size: 1.5em;
+                      &:hover {
+                          @include itemHeaderHover(white, $main-color);
+                          transform: scale(1.1);
+                      }
+                  }
+              }
+              .contact-us-item + .contact-us-item {
+                  margin-left: 5px;
+              }
+          }
+      }
+      .method-pay {
+          height: 100%;
+          font-size: 1.6em;
+          @include flexLayout();
+          flex-direction: column;
+          justify-content: center;
+          &-title {
+              @include titleFooter();
+              margin-bottom: 10px;
+          }
+          &-list {
+              @include flexLayout();
+              justify-content: center;
+              .method-pay-item {
+                  text-align: center;
+                  @include itemFooterStyle();
+                  margin-top: 0;
+                  border-radius: 4px;
+                  .icon {
+                      font-size: 1.5em;
+                  }
+                  p {
+                      margin-top: 5px;
+                  }
+                  &:hover {
+                      @include itemHeaderHover(white, $main-color);
+                  }
+              }
+              .method-pay-item + .method-pay-item {
+                  margin-left: 8px;
+              }
+          }
+      }
+      .branch {
+          // border: 1px solid black;
+          font-size: 1.6em;
+          padding: 5px;
+          &-title {
+              p {
+                  @include titleFooter();
+                  text-align: right;
+              }
+          }
+          &-list {
+              .branch-item {
+                  .icon {
+                    display: none;
+                  }
+                  @include itemFooterStyle();
+                  text-align: right;
+                  &:hover {
+                      @include itemFooterHover();
+                  }
+              }
+          }
+      }
+  }
+  .footer__copyright {
+      font-size: 18px;
+      padding: 15px;
+      background-color: #bd1d11;
+      text-align: center;
+  }
+}
+
+@include responsive_main_lg__ {
+    .footer {
+        .footer__content {
+            padding: 40px 40px;
+            .row {
+                --bs-gutter-x: 40px;
+                --bs-gutter-y: 40px;
+            }
+
+            // Căn giữa tiêu đề của footer
+            .my-store-title, .support-title > p, .contact-us-title, .branch-title > p, .branch-item  {
+                text-align: center !important;
+            }
+            // Căn giữa nội dung của footer
+            .my-store-item > a, .support-item > a, .contact-us-list {
+                justify-content: center !important;
+            }
+            // Set padding: 0; cho các nội dung
+            .col-xl-4 > article {
+                padding: 0;
+            }
+        }
+        .footer__copyright {
+            font-size: 15px;
+        }
+    }
+}
+//Medium
+@include responsive_main_md__ {
+    .footer {
+        .footer__content {
+            padding: 30px 30px;
+            .row {
+                --bs-gutter-x: 30px;
+                --bs-gutter-y: 30px;
+            }
+        }
+    }
+}
+@include responsive_main_sm__ {
+    .footer {
+        padding-bottom: 63px;
+        .footer__content {
+            font-size: 8px;
+            padding: 20px 20px;
+            .row {
+                --bs-gutter-x: 20px;
+                --bs-gutter-y: 20px;
+            }
+            .my-store {
+                &-title {
+                    text-align: initial !important;
+                    font-size: 14px;
+                }
+                &-list {
+                    .my-store-item {
+                        a {
+                            justify-content: initial !important;
+                            p {
+                                margin-left: 2px;
+                            }
+                            &:hover {
+                                transform: initial;
+                            }
+                        }
+                    }
+                }
+            }
+            .hotline > h1, .support-title > p, .contact-us-title, .method-pay-title, .branch-title > p{
+                font-size: 14px !important;
+            }
+            .hotline {
+                animation: initial;
+            }
+        }
+        .footer__copyright {
+            font-size: 12px;
+            padding: 10px;
+        }
+    }
+}
+@include responsive_main_xm__ {
+    .footer {
+        padding-bottom: 55px;
+    }
+}
+@include responsive_xxm {
+    .footer {
+        padding-bottom: 50px;
+        .footer__content {
+            font-size: 7px;
+            padding: 15px 15px;
+            .row {
+                --bs-gutter-x: 15px;
+                --bs-gutter-y: 15px;
+            }
+        }
+        .footer__copyright {
+            font-size: 11px;
+            padding: 8px;
+        }
+    }
+}
